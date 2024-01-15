@@ -22,7 +22,13 @@ static void AddPhysicists(IRepository<Physicist> physicistRepository)
     {
         Name = "Giordano",
         Surname = "Bruno",
-        Age = "XVw."
+        Age = "XVIw."
+    });
+    physicistRepository.Add(new Physicist
+    {
+        Name = "Isaac",
+        Surname = "Newton",
+        Age = "XVIIw."
     });
 
     physicistRepository.Save();
@@ -31,9 +37,17 @@ static void AddPhysicistNobels(IWriteRepository<PhysicistNobel> physicistNobelRe
 {
     physicistNobelRepository.Add(new PhysicistNobel
     {
-        Name = "Fala świetlna to fala elektromagnetyczna",
-        Surname = "Tak",
-        Age = "Nie",
+        Name = "Albert",
+        Surname = "Einstein",
+        Age = "XXw",
+        NobelY = 1921
+    });
+    physicistNobelRepository.Add(new PhysicistNobel
+    {
+        Name = "Enrico",
+        Surname = "Fermi",
+        Age = "XXw",
+        NobelY = 1938
     });
     physicistNobelRepository.Save();
 }
