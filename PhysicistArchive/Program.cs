@@ -7,7 +7,7 @@ Console.WriteLine("Hello in PhisicistArchive!!");
 
 var physicistRepo = new SqlRepository<Physicist>(new PADBContext());
 AddPhysicists(physicistRepo);
-AddPhysicistNobels(physicistRepo);
+AddChemists(physicistRepo);
 WriteAllToConsole(physicistRepo);
 
 static void AddPhysicists(IRepository<Physicist> physicistRepository)
@@ -30,26 +30,27 @@ static void AddPhysicists(IRepository<Physicist> physicistRepository)
         Surname = "Newton",
         Age = "XVIIw."
     });
-
-    physicistRepository.Save();
-}
-static void AddPhysicistNobels(IWriteRepository<PhysicistNobel> physicistNobelRepository)
-{
-    physicistNobelRepository.Add(new PhysicistNobel
+    physicistRepository.Add(new Physicist
     {
         Name = "Albert",
         Surname = "Einstein",
-        Age = "XXw",
+        Age = "XXw.",
         NobelYear = 1921
     });
-    physicistNobelRepository.Add(new PhysicistNobel
+
+    physicistRepository.Save();
+}
+static void AddChemists(IWriteRepository<Chemist> chemistRepository)
+{
+    chemistRepository.Add(new Chemist
     {
-        Name = "Enrico",
-        Surname = "Fermi",
-        Age = "XXw",
-        NobelYear = 1938
+        Name = "Jacobus",
+        Surname = "Henricus",
+        Age = "XXw.",
+        NobelYear = 1901
     });
-    physicistNobelRepository.Save();
+
+    chemistRepository.Save();
 }
 
 static void WriteAllToConsole(IReadRepository<IEntity> repository)

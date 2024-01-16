@@ -7,7 +7,7 @@ namespace PhysicistArchive.Data
     public class PADBContext : DbContext
     {
         public DbSet<Physicist> Physicists => Set<Physicist>();
-        public DbSet<PhysicistNobel> PhysicistNobels => Set<PhysicistNobel>();
+        public DbSet<Chemist> Chemists => Set<Chemist>();
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
