@@ -40,14 +40,14 @@ static void AddPhysicistNobels(IWriteRepository<PhysicistNobel> physicistNobelRe
         Name = "Albert",
         Surname = "Einstein",
         Age = "XXw",
-        NobelY = 1921
+        NobelYear = 1921
     });
     physicistNobelRepository.Add(new PhysicistNobel
     {
         Name = "Enrico",
         Surname = "Fermi",
         Age = "XXw",
-        NobelY = 1938
+        NobelYear = 1938
     });
     physicistNobelRepository.Save();
 }
