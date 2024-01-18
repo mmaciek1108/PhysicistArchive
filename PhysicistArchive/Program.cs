@@ -7,7 +7,7 @@ Console.WriteLine("Hello in PhisicistArchive!!");
 
 var physicistRepo = new SqlRepository<Physicist>(new PADBContext());
 AddPhysicists(physicistRepo);
-AddChemists(physicistRepo);
+AddExperimentalPhysicist(physicistRepo);
 WriteAllToConsole(physicistRepo);
 
 static void AddPhysicists(IRepository<Physicist> physicistRepository)
@@ -16,41 +16,37 @@ static void AddPhysicists(IRepository<Physicist> physicistRepository)
     {
         Name = "Mikołaj",
         Surname = "Kopernik",
-        Age = "XVIIw."
-    });
-    physicistRepository.Add(new Physicist
-    {
-        Name = "Giordano",
-        Surname = "Bruno",
-        Age = "XVIw."
+        DateOfBirth = new DateTime(1473, 2, 19),
+        DateOfDeath = new DateTime(1543, 5, 24),
+        FieldOfStudy = "Astronomy"
+
     });
     physicistRepository.Add(new Physicist
     {
         Name = "Isaac",
         Surname = "Newton",
-        Age = "XVIIw."
-    });
-    physicistRepository.Add(new Physicist
-    {
-        Name = "Albert",
-        Surname = "Einstein",
-        Age = "XXw.",
-        NobelYear = 1921
+        DateOfBirth = new DateTime(1642, 12, 25),
+        DateOfDeath = new DateTime(1727, 3, 20),
+        FieldOfStudy = "Newton's Law of Universal Gravitation",
     });
 
     physicistRepository.Save();
 }
-static void AddChemists(IWriteRepository<Chemist> chemistRepository)
+
+static void AddExperimentalPhysicist(IWriteRepository<ExperimentalPhysicist> experimentalRepository)
 {
-    chemistRepository.Add(new Chemist
+    experimentalRepository.Add(new ExperimentalPhysicist
     {
-        Name = "Jacobus",
-        Surname = "Henricus",
-        Age = "XXw.",
-        NobelYear = 1901
+        Name = "Ernest",
+        Surname = "Rutherford",
+        DateOfBirth = new DateTime(1871, 8, 30),
+        DateOfDeath = new DateTime(1937, 10, 19),
+        NobelYear = 1908,
+        FieldOfStudy = "Atomic structure",
+        Laboratory = "Cavendish Laboratory"
     });
 
-    chemistRepository.Save();
+    experimentalRepository.Save();
 }
 
 static void WriteAllToConsole(IReadRepository<IEntity> repository)

@@ -1,8 +1,10 @@
 
 namespace PhysicistArchive.Entities
 {
-    public class Chemist : Physicist
+    public class Chemist : EntityBase
     {
-        public override string ToString() => base.ToString() + " chemist";
+        public string? ResearchArea { get; set; }
+
+        public override string ToString() => base.ToString() + $", {ResearchArea}";
     }
 }
